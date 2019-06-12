@@ -14,7 +14,7 @@ zbx_api_verify = True  # True - do not ignore self signed certificates, False - 
 
 proxy_to_zbx = None
 proxy_to_tg = None
-
+new_line=None
 
 # proxy_to_zbx = "proxy.local:3128"
 # proxy_to_tg = "proxy.local:3128"
