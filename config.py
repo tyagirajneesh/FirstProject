@@ -11,7 +11,7 @@ zbx_server = "http://10.200.208.24/zabbix"  # zabbix server full url
 zbx_api_user = "admin"
 zbx_api_pass = "zabbix"
 zbx_api_verify = True  # True - do not ignore self signed certificates, False - ignore
-
+check
 proxy_to_zbx = None
 proxy_to_tg = None
 new_line=None
