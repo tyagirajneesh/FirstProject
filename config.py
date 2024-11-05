@@ -3,7 +3,7 @@ jira_user = 'vinay_singh'
 jira_pass = 'satgurudev@05'
 jira_transition = 'Done'  # Transition to close issue. Read more https://jira.readthedocs.io/en/master/examples.html#transitions
 jira_project = 'ZAB'  # Your project key, for example "ZBX"
-jira_issue_type = 'Incident'  # Your issue type in Jira project(Error, Bug, Epic ...)
+jira_issue_type = 'Incident'  # Your issue types in Jira project(Error, Bug, Epic ...)
 
 zbx_prefix = "zbx"  # variable for separating text from script info
 zbx_tmp_dir = "/tmp/" + zbx_prefix  # directory for saving caches, cookies, etc.
