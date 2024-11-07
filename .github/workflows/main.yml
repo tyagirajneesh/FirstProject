@@ -1,43 +1,39 @@
+---
 name: Trigger CodeBuild
-
-     on:
-       push:
-         branches: [ main ]
-       pull_request:
-         branches: [ main ]
-       workflow_dispatch:
-
-     jobs:
-
-       build:
-         runs-on: ubuntu-latest
-
-         steps:
-         - uses: actions/checkout@v2
-
-         - name: Configure AWS credentials
-           uses: aws-actions/configure-aws-credentials@v1
-           with:
-             aws-access-key-id: ASIA32WXPXTCD56UHLRZ
-             aws-secret-access-key: I/suYR8QuwFrcf4Xfuu00teexanXJQWPTurhjXWl
-             aws-region: us-east-1
-             aws-role-arn: arn:aws:iam::813274479812:role/service-role/codebuild-GitHubActionWithcbATandT-service-role
-
-         - name: Start CodeBuild build
-           uses: aws-actions/amazon-codebuild-run-build@v1.1.0
-           with:
-             project-name: GitHubActionWithcbATandT
-             build-env-variables: |
-               ENVIRONMENT=production
-             codebuild-url: http://ATnTNLB-b440e231be096913.elb.us-east-1.amazonaws.com
-
-         - name: Retrieve CodeBuild build logs
-           uses: aws-actions/aws-cli-actions@v1.1.0
-           with:
-             args: |
-               logs get-log-events \
-                 --log-group-name /aws/codebuild/GitHubActionWithcbATandT \
-                 --log-stream-name ${{ github.sha }} \
-                 --region us-east-1
-           env:
-             AWS_URL: http://ATnTNLB-b440e231be096913.elb.us-east-1.amazonaws.com
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: null
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ASIA32WXPXTCD56UHLRZ
+          aws-secret-access-key: I/suYR8QuwFrcf4Xfuu00teexanXJQWPTurhjXWl
+          aws-region: us-east-1
+          aws-role-arn: arn:aws:iam::813274479812:role/service-role/codebuild-GitHubActionWithcbATandT-service-role
+      - name: Start CodeBuild build
+        uses: aws-actions/amazon-codebuild-run-build@v1.1.0
+        with:
+          project-name: GitHubActionWithcbATandT
+          build-env-variables: |
+            ENVIRONMENT=production
+          codebuild-url: http://ATnTNLB-b440e231be096913.elb.us-east-1.amazonaws.com
+      - name: Retrieve CodeBuild build logs
+        uses: aws-actions/aws-cli-actions@v1.1.0
+        with:
+          args: |
+            logs get-log-events \
+              --log-group-name /aws/codebuild/GitHubActionWithcbATandT \
+              --log-stream-name ${{ github.sha }} \
+              --region us-east-1
+        env:
+          AWS_URL: http://ATnTNLB-b440e231be096913.elb.us-east-1.amazonaws.com
