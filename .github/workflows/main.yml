@@ -8,16 +8,32 @@ on:
   workflow_dispatch:
 
 jobs:
-  trigger-codebuild:
+
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-    - name: Start CodeBuild
-      run: |
-        aws configure set aws_access_key_id ASIA32WXPXTCBZA4ZQGG
-        aws configure set aws_secret_access_key 5ZRH7I2ip1bduxzs+3rff1AP/kaO6C+MR7WqmIc4
-        aws configure set region us-east
-        aws codebuild start-build --project-name GitHubActionWithcbATandT
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ASIA32WXPXTCD56UHLRZ
+        aws-secret-access-key: I/suYR8QuwFrcf4Xfuu00teexanXJQWPTurhjXWl
+        aws-region: us-east-1
+        aws-role-arn: arn:aws:iam::813274479812:role/service-role/codebuild-GitHubActionWithcbATandT-service-role
+
+    - name: Start CodeBuild build
+      uses: aws-actions/codebuild-build-project@v1
+      with:
+        project-name: GitHubActionWithcbATandT
+        build-args: |
+          ENVIRONMENT=production
+        codebuild-url: http://ATnTNLB-b440e231be096913.elb.us-east-1.amazonaws.com
+
+    - name: Retrieve CodeBuild build logs
+      uses: aws-actions/codebuild-logs@v1
+      with:
+        log-group: /aws/codebuild/my-codebuild-project
+        log-stream: ${{ github.sha }}
+        codebuild-url: http://ATnTNLB-b440e231be096913.elb.us-east-1.amazonaws.com
