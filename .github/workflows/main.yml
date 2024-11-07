@@ -7,7 +7,7 @@ on:
     branches: [ main ]
   workflow_dispatch:
 jobs:
-  build:
+  trigger-codebuild:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
