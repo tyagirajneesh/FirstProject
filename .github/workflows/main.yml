@@ -21,10 +21,6 @@ jobs:
         aws configure set aws_secret_access_key 5ZRH7I2ip1bduxzs+3rff1AP/kaO6C+MR7WqmIc4
         aws configure set region us-east-1
 
-    - name: Debug CodeBuild project
-      run: |
-        aws codebuild describe-projects --names GitHubActionWithcbATandT
-
     - name: Start CodeBuild
       run: |
         aws codebuild start-build --project-name GitHubActionWithcbATandT
