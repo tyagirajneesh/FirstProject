@@ -15,12 +15,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Configure AWS credentials
+    - name: Start CodeBuild
       run: |
         aws configure set aws_access_key_id ASIA32WXPXTCBZA4ZQGG
         aws configure set aws_secret_access_key 5ZRH7I2ip1bduxzs+3rff1AP/kaO6C+MR7WqmIc4
-        aws configure set region us-east-1
-
-    - name: Start CodeBuild
-      run: |
+        aws configure set region us-east
         aws codebuild start-build --project-name GitHubActionWithcbATandT
