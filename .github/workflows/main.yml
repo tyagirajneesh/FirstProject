@@ -1,27 +1,33 @@
-name: Trigger CodeBuild
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
-jobs:
-  trigger-codebuild:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ASIA32WXPXTCD56UHLRZ
-          aws-secret-access-key: I/suYR8QuwFrcf4Xfuu00teexanXJQWPTurhjXWl
-          aws-region: us-east-1
-          aws-role-arn: arn:aws:iam::813274479812:role/service-role/codebuild-GitHubActionWithcbATandT-service-role
-      - name: Start CodeBuild build
-        uses: aws-cli-actions@v2
-        with:
-          args: >
-            codebuild start-build \
-              --project-name GitHubActionWithcbATandT \
-              --environment-variables-override file://env-vars.json \
-              --endpoint-url http://ATnTNLB-b440e231be096913.elb.us-east-1.amazonaws.com  
+     name: Trigger CodeBuild
+
+     on:
+       push:
+         branches: [ main ]
+       pull_request:
+         branches: [ main ]
+       workflow_dispatch:
+
+     jobs:
+
+       build:
+         runs-on: ubuntu-latest
+
+         steps:
+         - uses: actions/checkout@v2
+
+         - name: Configure AWS credentials
+           uses: aws-actions/configure-aws-credentials@v1
+           with:
+             aws-access-key-id: ASIA32WXPXTCD56UHLRZ
+             aws-secret-access-key:  I/suYR8QuwFrcf4Xfuu00teexanXJQWPTurhjXWl
+             aws-region: us-east-1
+             aws-role-arn: arn:aws:iam::813274479812:role/service-role/codebuild-GitHubActionWithcbATandT-service-role
+
+         - name: Start CodeBuild build
+           uses: aws-cli-actions@v2
+           with:
+             args: |
+               codebuild start-build \
+                 --project-name GitHubActionWithcbATandT \
+                 --environment-variables-override file://env-vars.json \
+                 --endpoint-url http://ATnTNLB-b440e231be096913.elb.us-east-1.amazonaws.com
