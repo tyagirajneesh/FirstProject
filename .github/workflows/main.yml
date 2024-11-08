@@ -1,19 +1,27 @@
 name: Trigger CodeBuild
+
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch:
+  workflow_dispatch:  
+
 jobs:
   trigger-codebuild:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ASIA32WXPXTCE2M33AT2
+        aws-secret-access-key: z9WGM8qMVHw3mUwev03hevNf1aaW+e3eI1t7kKaV
+        aws-region: us-east-1 # Replace with your desired region
+
     - name: Start CodeBuild
       run: |
-        aws configure set aws_access_key_id ASIA32WXPXTCE2M33AT2
-        aws configure set aws_secret_access_key z9WGM8qMVHw3mUwev03hevNf1aaW+e3eI1t7kKaV
-        aws configure set region us-east
-       aws codebuild start-build --project-name GitHubActionWithcbATandT --region us-east-1 --endpoint-url https://ATnTNLB-b440e231be096913.elb.us-east-1.amazonaws.com
+        aws codebuild start-build --project-name GitHubActionWithcbATandT  
