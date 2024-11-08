@@ -16,11 +16,10 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ASIA32WXPXTCDZB6D3WM
-        aws-secret-access-key: z0AtUoNh48utGaTXmmTm0qtfaMd8rfzl3N3CKxYk
-        aws-region: us-east-1 # Replace with your desired region
+      run: |
+        aws configure set aws_access_key_id ASIA32WXPXTCDZB6D3WM
+        aws configure set aws_secret_access_key z0AtUoNh48utGaTXmmTm0qtfaMd8rfzl3N3CKxYk
+        aws configure set region us-east-1
 
     - name: Start CodeBuild
       run: |
