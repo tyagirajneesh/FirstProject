@@ -18,8 +18,8 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-         aws-access-key-id: ASIA32WXPXTCA6AQEUSP
-         aws-secret-access-key:  zs85Jr4jC5nw299I50+TDpg1WY8rAIN/DqXTe3Jk
+         aws-access-key-id: ASIA32WXPXTCBX23X6RG
+         aws-secret-access-key: 4MYbzaTOxesWimovHWAiAKl0e/Xsv0a/sFlRICwu
          aws-region: us-east-1
 
     - name: Start CodeBuild
