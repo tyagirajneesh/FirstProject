@@ -23,4 +23,4 @@ jobs:
 
     - name: Start CodeBuild
       run: |
-        aws codebuild start-build --project-name GitHubActionWithcbATandT --region us-east-1 --endpoint-url https://codebuild.us-east-1.amazonaws.com
+        aws codebuild start-build --project-name GitHubActionWithcbATandT --region us-east-1 --no-sign-request --endpoint-url https://codebuild.us-east-1.amazonaws.com
