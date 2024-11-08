@@ -21,4 +21,4 @@ jobs:
         export AWS_ACCESS_KEY_ID=ASIA32WXPXTCOX6CYDPE
         export AWS_SECRET_ACCESS_KEY=QxnfecFufv8H0kmGiusYTF1LxUN8H//2LF6vcz55
         export AWS_SESSION_TOKEN=IQoJb3JpZ2luX2VjENf//////////wEaCXVzLWVhc3QtMSJGMEQCIHZThs0ZoAzOra9o6ZZmZ0RFD6tNXS0UiqFKvbqpUW35AiAWbMy+ofmJkzhcZZ11INm+o1SHpK1sD5NUbuoKDE7E/yqeAghgEAEaDDgxMzI3NDQ3OTgxMiIMFcRbyk6xBqSMhiD8KvsBel0F4W1tUfdeUDz8xD438WzfLA5bc2xFAV98XhFY2ZWzJl9LhrjJNwrTUCkItOuncrlpzm4VeprgikJn078+guXcaN3VOT2wLl8HhHxoaP/mfCRQGFgBVxQHCVVKXtLde2uxEA4Q5f8r12dpy/64FCuIkRQebooXlQAN9Mo3fMwiJAaP79GQqpBAIhz5Gg5ouYuSOhEgTpv7IpN/G5x65/ycQ2M3TdhQ8j+hup4a3W2ZC620pjPmSMhf11JiHoHYw89y3Bpe1l77IiUqItykRK3IoyVtQJ5LEKW2VA1fCs7f1USRNuI0vji4jFR8ZbvrzVSr715kU1GjNXIwjcy4uQY6ngGiolIYiibRoHPYn0fkMLlgsMDvP7KG7zSi1U0AGBW3ykhs5Ah/wErU+HDijw+LetKMAKPQXrMi0xE78Y1OYcEUDbIbuGgsIXZMEZV1uAuHTFArHgp3BEUKo8JypWc7V6g9JMIkJmMYuMkedSryzmhQgKX6fnmaiX6logp6qh7PL4Lq++cWs4RjJU71ZX+x6G0YmBfIW1tyhES9W+ByAw==
-        aws codebuild start-build --project-name GitHubActionWithcbATandT --region us-east-1
+        aws codebuild start-build --project-name ATnTPrivateCodebuild --region us-east-1
