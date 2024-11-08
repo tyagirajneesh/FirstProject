@@ -23,5 +23,28 @@ jobs:
         aws-region: us-east-1
 
     - name: Start CodeBuild
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
-        aws codebuild start-build --project-name GitHubActionWithcbATandT --region us-east-1
+        
+        # Use the AWS SDK for JavaScript to start the CodeBuild build
+        const AWS = require('aws-sdk');
+        AWS.config.update({
+          region: 'us-east-1',
+          credentials: {
+            accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+            secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+          },
+        });
+        
+        const codebuild = new AWS.CodeBuild();
+        codebuild.startBuild({
+          projectName: 'GitHubActionWithcbATandT',
+        }, (err, data) => {
+          if (err) {
+            console.error('Error starting CodeBuild build:', err);
+          } else {
+            console.log('CodeBuild build started:', data.build.id);
+          }
+        });
