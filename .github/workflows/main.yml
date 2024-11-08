@@ -17,8 +17,8 @@ jobs:
 
     - name: Configure AWS credentials
       run: |
-        aws configure set aws_access_key_id ASIA32WXPXTCDZB6D3WM
-        aws configure set aws_secret_access_key z0AtUoNh48utGaTXmmTm0qtfaMd8rfzl3N3CKxYk
+        aws configure set aws_access_key_id ASIA32WXPXTCNJVWAOD2
+        aws configure set aws_secret_access_key soDLYxRuROsIT/RHszVO6knqHOrWvGs+p9TrBiGS
         aws configure set region us-east-1
 
     - name: Start CodeBuild
