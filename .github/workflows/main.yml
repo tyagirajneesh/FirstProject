@@ -22,5 +22,6 @@ jobs:
         aws configure set region us-east-1
 
     - name: Start CodeBuild
-      run: |
-        aws codebuild start-build --project-name GitHubActionWithcbATandT --region us-east-1
+      uses: aws-actions/aws-codebuild-run-build@v1
+      with: 
+        project-name: GitHubActionWithcbATandT
